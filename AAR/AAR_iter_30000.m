@@ -67,8 +67,11 @@ for m = 1:length(phis)
         exit = false;
         while exit == false
             % For the selected phi, (and beta =0) compute mass flows of H and O.
-            yO = 32/(4*phi+32); % gas.O2.MM*1/(gas.H2.MM*2*phi+gas.O2.MM*2*phi);
-            yH = 4*phi/(4*phi+32);% gas.H2.MM*2*phi/(gas.H2.MM*2*phi+gas.O2.MM*1);
+            nO2s = 1;
+            nH2s = 2;            
+            
+            yO = nO2s*gas.O2.MM / (phi*nH2s*gas.H2.MM + nO2s*gas.O2.MM);  
+            yH = phi*nH2s*gas.H2.MM / (phi*nH2s*gas.H2.MM + nO2s*gas.O2.MM);
             yN = 0;
             
             mdotO = yO*MC_g;

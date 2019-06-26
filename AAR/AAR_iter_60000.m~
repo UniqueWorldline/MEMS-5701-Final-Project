@@ -83,8 +83,8 @@ for m = 1:length(phis)
             nO2s = 1;
             nH2s = 2;
             
-            yO = nO2s*gas.O2.MM / (phi*nH2s*gas.H2.MM + nO2s*gas.O2.MM);  
-            yH = phi*nH2s*gas.H2.MM / (phi*nH2s*gas.H2.MM + nO2s*gas.O2.MM);
+            yO =  nO2s*gas.O2.MM / (phi*nH2s*gas.H2.MM + nO2s*gas.O2.MM);  
+            yH =  phi*nH2s*gas.H2.MM / (phi*nH2s*gas.H2.MM + nO2s*gas.O2.MM);
             yN = 0;
             
             mdotO = yO*MC_g;

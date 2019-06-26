@@ -112,8 +112,11 @@ for m = 1:length(phis)
         taut = 1 - etaT*(1-pit^g1); % Turbine temperature ratio
         
         % Mass Fractions
-        yO = 32/(4*phi+32);
-        yH = 4*phi/(4*phi+32);
+        nO2s = 1;
+        nH2s = 2;
+        
+        yO = nO2s*gas.O2.MM / (phi*nH2s*gas.H2.MM + nO2s*gas.O2.MM);
+        yH = phi*nH2s*gas.H2.MM / (phi*nH2s*gas.H2.MM + nO2s*gas.O2.MM);
         yN = 0;
         
         % Compute Ttc.
